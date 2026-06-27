@@ -673,6 +673,9 @@ p {
 .bead-chain.graft {
   position: relative;
   width: 270px;
+  min-height: 132px;
+  align-items: flex-start;
+  padding-top: 8px;
 }
 
 .bead-chain.graft i {
@@ -828,6 +831,118 @@ input[type="range"] {
   font: 700 1.35rem "Courier New", monospace;
 }
 
+.stat-primer {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.stat-primer article {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+  margin: 0;
+  padding: 16px;
+  background: #fffaf0;
+  border: 1px solid #d4c6aa;
+  border-radius: 6px;
+}
+
+.stat-primer h4,
+.stat-primer p {
+  margin: 0;
+}
+
+.primer-bars {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: end;
+  gap: 8px;
+  min-height: 100px;
+  padding: 12px;
+  background: #edf3f1;
+  border: 1px solid #b6c9c4;
+  border-radius: 6px;
+}
+
+.primer-bars > span {
+  position: relative;
+  display: grid;
+  place-items: end center;
+  height: var(--h);
+  min-height: 22px;
+  color: #fff;
+  background: var(--blue);
+  border-radius: 4px 4px 0 0;
+  font: 700 0.78rem "Trebuchet MS", Arial, sans-serif;
+}
+
+.primer-bars b {
+  position: absolute;
+  bottom: -24px;
+  color: var(--muted);
+}
+
+.primer-votes {
+  display: flex;
+  align-items: end;
+  gap: 8px;
+  min-height: 88px;
+  padding: 12px;
+  background: #edf3f1;
+  border: 1px solid #b6c9c4;
+  border-radius: 6px;
+}
+
+.primer-votes > span,
+.primer-votes strong {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  color: #fff;
+  background: var(--blue);
+  border-radius: 5px;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+}
+
+.primer-votes > span {
+  height: 34px;
+}
+
+.primer-votes strong {
+  width: 54px;
+  height: 76px;
+  background: var(--gold);
+}
+
+.primer-formula {
+  padding: 14px;
+  background: #edf3f1;
+  border: 1px solid #b6c9c4;
+  border-radius: 6px;
+  overflow-x: auto;
+}
+
+.primer-scale {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 10px;
+  align-items: center;
+  padding: 14px;
+  background: #edf3f1;
+  border: 1px solid #b6c9c4;
+  border-radius: 6px;
+  color: var(--muted);
+  font: 700 0.9rem "Trebuchet MS", Arial, sans-serif;
+}
+
+.primer-scale i {
+  height: 14px;
+  background: linear-gradient(90deg, var(--blue), var(--gold), var(--red));
+  border-radius: 999px;
+}
+
 .math-line {
   margin: 14px 0;
   padding: 14px;
@@ -839,16 +954,19 @@ input[type="range"] {
 
 .math-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
   gap: 10px;
   margin: 14px 0;
 }
 
-.math-grid span {
+.math-grid > span {
+  min-width: 0;
   padding: 12px;
   background: #edf3f1;
   border: 1px solid #b6c9c4;
   border-radius: 6px;
+  overflow-x: auto;
+  white-space: nowrap;
 }
 
 .reaction-svg,
@@ -1024,6 +1142,7 @@ input[type="range"] {
   .definition-grid,
   .class-grid,
   .bio-grid,
+  .stat-primer,
   .architecture-board,
   .chem-legend-board,
   .composition-map,

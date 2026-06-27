@@ -384,6 +384,60 @@
             он больше.
           </p>
         </details>
+
+        <details>
+          <summary>Статистический ликбез: как читать распределения и моменты</summary>
+          <div class="stat-primer">
+            <article>
+              <h4>Распределение</h4>
+              <p>
+                Это таблица или график ответа на вопрос: какая доля объекта
+                имеет значение <span class="chem">\(l\)</span>? Для ММР объект —
+                полимерная цепь, а <span class="chem">\(l\)</span> — число
+                звеньев в ней.
+              </p>
+              <div class="primer-bars" aria-label="Пример распределения длин цепей">
+                <span style="--h: 32%"><b>2</b></span>
+                <span style="--h: 68%"><b>4</b></span>
+                <span style="--h: 46%"><b>6</b></span>
+                <span style="--h: 18%"><b>8</b></span>
+              </div>
+            </article>
+            <article>
+              <h4>Числовое и весовое</h4>
+              <p>
+                <span class="chem">\(f_N(l)\)</span> считает молекулы:
+                каждая цепь даёт один голос. <span class="chem">\(f_W(l)\)</span>
+                считает массу, поэтому длинная цепь весит в статистике сильнее.
+              </p>
+              <div class="primer-votes">
+                <span>1</span><span>1</span><span>1</span>
+                <strong>10</strong>
+              </div>
+            </article>
+            <article>
+              <h4>Момент распределения</h4>
+              <p>
+                Момент — это среднее с весом <span class="chem">\(l^k\)</span>.
+                Нулевой момент проверяет сумму долей, первый связан со средней
+                длиной, второй и третий сильнее выделяют длинные цепи.
+              </p>
+              <div class="primer-formula">\(\mu^{(k)}=\sum l^k f_N(l)\)</div>
+            </article>
+            <article>
+              <h4>Зачем это нужно</h4>
+              <p>
+                <span class="chem">\(P_N\)</span> отвечает “какая средняя цепь
+                по числу молекул?”, <span class="chem">\(P_W\)</span> —
+                “где сидит средняя масса?”, а
+                <span class="chem">\(K=P_W/P_N\)</span> показывает ширину ММР.
+              </p>
+              <div class="primer-scale">
+                <span>узко</span><i></i><span>широко</span>
+              </div>
+            </article>
+          </div>
+        </details>
       </section>
 
       <section class="ticket" id="ticket-3">
