@@ -208,6 +208,35 @@ p {
   align-items: start;
 }
 
+.section-divider {
+  margin: 64px 0 38px;
+  padding: 34px 30px;
+  color: #f9f4e8;
+  background: #23353a;
+  border: 1px solid #1b292d;
+  border-radius: 8px;
+  box-shadow: 0 12px 32px var(--shadow);
+}
+
+.section-divider h2 {
+  max-width: 860px;
+}
+
+.section-divider p {
+  max-width: 82ch;
+  color: #f2ead5;
+}
+
+.route--wide {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 24px;
+}
+
+.route--wide li {
+  background: rgba(249, 244, 232, 0.1);
+  border-color: rgba(249, 244, 232, 0.22);
+}
+
 .route {
   counter-reset: item;
   display: grid;
@@ -333,6 +362,269 @@ p {
   padding: 20px;
   background: #eef1e4;
   border: 1px solid #bcc8ae;
+  border-radius: 8px;
+}
+
+.polymer-model,
+.angle-demo,
+.gaussian-board,
+.matrix-board,
+.persistence-board {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.9fr);
+  gap: 18px;
+  align-items: center;
+  margin: 20px 0 24px;
+}
+
+.polymer-model,
+.walk-board,
+.shape-board,
+.kuhn-board,
+.entropy-board {
+  padding: 18px;
+  background: #eef1e4;
+  border: 1px solid #bcc8ae;
+  border-radius: 8px;
+}
+
+.polymer-model svg,
+.cone-card svg,
+.shape-board svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.polymer-model polyline,
+.shape-board path {
+  fill: none;
+  stroke: var(--blue);
+  stroke-width: 8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.polymer-model .end-vector,
+.shape-board .axis-line {
+  stroke: var(--red);
+  stroke-width: 4;
+  stroke-dasharray: 12 9;
+}
+
+.polymer-model text,
+.cone-card text,
+.shape-board text {
+  fill: var(--muted);
+  font: 700 18px "Trebuchet MS", Arial, sans-serif;
+}
+
+.polymer-model .vector-label {
+  fill: var(--red);
+}
+
+.cone-card {
+  padding: 16px;
+  background: #fbf3df;
+  border: 1px solid #d9c9aa;
+  border-radius: 6px;
+}
+
+.cone-card line,
+.cone-card path {
+  fill: none;
+  stroke: var(--blue);
+  stroke-width: 5;
+  stroke-linecap: round;
+}
+
+.cone-card ellipse {
+  fill: rgba(33, 95, 122, 0.08);
+  stroke: var(--gold);
+  stroke-width: 4;
+}
+
+.walk-board {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.75fr) minmax(0, 1fr);
+  gap: 18px;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.walk-rail {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  padding: 14px;
+  background: #fffaf0;
+  border: 1px solid #d4c6aa;
+  border-radius: 6px;
+}
+
+.step {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  color: #fff;
+  background: var(--blue);
+  border-radius: 50%;
+  font: 700 1.1rem "Trebuchet MS", Arial, sans-serif;
+}
+
+.step.minus {
+  background: var(--gold);
+}
+
+.gaussian-curve {
+  position: relative;
+  min-height: 210px;
+  background:
+    linear-gradient(rgba(33, 95, 122, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(33, 95, 122, 0.09) 1px, transparent 1px),
+    #fffaf0;
+  background-size: 26px 26px;
+  border: 1px solid #d4c6aa;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.gaussian-curve::before {
+  content: "";
+  position: absolute;
+  inset: 34px 26px 38px;
+  background:
+    radial-gradient(ellipse at center bottom, rgba(33, 95, 122, 0.86) 0 8%, rgba(33, 95, 122, 0.68) 20%, rgba(33, 95, 122, 0.22) 43%, transparent 68%);
+  clip-path: polygon(0 100%, 6% 93%, 12% 82%, 18% 66%, 24% 49%, 31% 31%, 39% 16%, 48% 8%, 56% 10%, 65% 22%, 74% 42%, 83% 66%, 92% 87%, 100% 100%);
+}
+
+.gaussian-curve::after {
+  content: "гауссов максимум не при h=0";
+  position: absolute;
+  left: 26px;
+  right: 26px;
+  bottom: 12px;
+  color: var(--muted);
+  font: 700 0.88rem "Trebuchet MS", Arial, sans-serif;
+}
+
+.shape-board {
+  margin: 20px 0;
+}
+
+.shape-board .width-line {
+  stroke: var(--gold);
+  stroke-width: 5;
+}
+
+.shape-board .thick-line {
+  stroke: var(--violet);
+  stroke-width: 5;
+}
+
+.matrix-board {
+  align-items: stretch;
+}
+
+.matrix-card {
+  display: grid;
+  place-items: center;
+  min-height: 160px;
+  padding: 18px;
+  background: #edf3f1;
+  border: 1px solid #b6c9c4;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+.kuhn-board,
+.entropy-board {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  gap: 18px;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.fine-chain,
+.coarse-chain,
+.entropy-state {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  min-height: 84px;
+  padding: 14px;
+  background: #fffaf0;
+  border: 1px solid #d4c6aa;
+  border-radius: 6px;
+}
+
+.fine-chain span,
+.coarse-chain span,
+.entropy-state span {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  color: #fff;
+  background: var(--blue);
+  border-radius: 50%;
+  font: 700 0.8rem "Trebuchet MS", Arial, sans-serif;
+}
+
+.coarse-chain span {
+  width: 58px;
+  height: 58px;
+  background: var(--gold);
+}
+
+.memory-scale,
+.primer-scale {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 10px;
+  align-items: center;
+  padding: 14px;
+  background: #edf3f1;
+  border: 1px solid #b6c9c4;
+  border-radius: 6px;
+  color: var(--muted);
+  font: 700 0.9rem "Trebuchet MS", Arial, sans-serif;
+}
+
+.memory-scale i,
+.primer-scale i {
+  height: 14px;
+  background: linear-gradient(90deg, var(--blue), var(--gold), var(--red));
+  border-radius: 999px;
+}
+
+.entropy-state {
+  position: relative;
+  align-content: center;
+  min-height: 150px;
+}
+
+.entropy-state b {
+  flex-basis: 100%;
+  color: var(--muted);
+  font: 700 0.9rem "Trebuchet MS", Arial, sans-serif;
+}
+
+.entropy-state.many span:nth-child(1) { transform: translate(0, 12px); }
+.entropy-state.many span:nth-child(2) { transform: translate(-8px, -12px); }
+.entropy-state.many span:nth-child(3) { transform: translate(6px, 18px); }
+.entropy-state.many span:nth-child(4) { transform: translate(-3px, -5px); }
+.entropy-state.many span:nth-child(5) { transform: translate(8px, 10px); }
+
+.entropy-state.few {
+  justify-content: center;
+}
+
+.entropy-state.few span {
   border-radius: 8px;
 }
 
@@ -1114,11 +1406,20 @@ input[type="range"] {
   }
 
   .orientation,
-  .interactive-panel {
+  .interactive-panel,
+  .polymer-model,
+  .angle-demo,
+  .gaussian-board,
+  .matrix-board,
+  .persistence-board,
+  .walk-board,
+  .kuhn-board,
+  .entropy-board {
     grid-template-columns: 1fr;
   }
 
   .class-grid,
+  .route--wide,
   .architecture-board,
   .chem-legend-board,
   .composition-map,
@@ -1135,12 +1436,18 @@ input[type="range"] {
   .reaction-map .map-arrow {
     transform: rotate(90deg);
   }
+
+  .kuhn-board .map-arrow,
+  .entropy-board .map-arrow {
+    transform: rotate(90deg);
+  }
 }
 
 @media (max-width: 680px) {
   .ticket-nav,
   .definition-grid,
   .class-grid,
+  .route--wide,
   .bio-grid,
   .stat-primer,
   .architecture-board,
@@ -1156,7 +1463,8 @@ input[type="range"] {
   }
 
   .orientation,
-  .ticket {
+  .ticket,
+  .section-divider {
     padding: 20px;
   }
 

@@ -3,15 +3,15 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Статистика макромолекул: раздел I</title>
+    <title>Статистика макромолекул: разделы I-II</title>
     <link rel="stylesheet" href="katex/katex.min.css" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <aside class="rail" aria-label="Навигация по билетам">
       <div class="rail__title">
-        <span class="mono">Раздел I</span>
-        <strong>строение макромолекул</strong>
+        <span class="mono">Разделы I-II</span>
+        <strong>строение и модели цепей</strong>
       </div>
       <nav class="ticket-nav">
         <a href="#ticket-1"><span>1</span> Классификация</a>
@@ -21,23 +21,34 @@
         <a href="#ticket-5"><span>5</span> Поликонденсация</a>
         <a href="#ticket-6"><span>6</span> Полимеризация</a>
         <a href="#ticket-7"><span>7</span> Биополимеры</a>
+        <a href="#section-2"><span>II</span> Модели цепей</a>
+        <a href="#ticket-8"><span>8</span> Идеальная цепь</a>
+        <a href="#ticket-9"><span>9</span> Валентный угол</a>
+        <a href="#ticket-10"><span>10</span> Биномиальное W</a>
+        <a href="#ticket-12"><span>12</span> Гауссов клубок</a>
+        <a href="#ticket-15"><span>15</span> Размеры цепи</a>
+        <a href="#ticket-19"><span>19</span> Вращение</a>
+        <a href="#ticket-21"><span>21</span> Сегмент Куна</a>
+        <a href="#ticket-22"><span>22</span> Персистентность</a>
+        <a href="#ticket-25"><span>25</span> Эластичность</a>
       </nav>
       <div class="rail__note">
-        <b>Экзаменационная ось:</b> сначала научиться узнавать тип цепи,
-        потом описывать распределение, затем понимать, как цепь получается.
+        <b>Экзаменационная ось:</b> сначала узнать химический объект, затем
+        научиться считать форму цепи как статистический клубок.
       </div>
     </aside>
 
     <main>
       <header class="page-head">
-        <p class="eyebrow">Билеты 1-7</p>
-        <h1>Химическая сторона статистики макромолекул</h1>
+        <p class="eyebrow">Билеты 1-26</p>
+        <h1>Статистика макромолекул: от химии звеньев к форме цепи</h1>
         <p>
           Этот раздел держится на одной простой идее: макромолекула не
           “огромная формула”, а цепь повторяющихся звеньев. Чтобы говорить о
           ней статистически, нужно знать, из каких звеньев она собрана, как
-          эти звенья соединены и почему в образце всегда есть смесь длин и
-          составов.
+          эти звенья соединены, почему в образце всегда есть смесь длин и
+          составов, и как случайные повороты превращают длинную молекулу в
+          полимерный клубок.
         </p>
       </header>
 
@@ -938,10 +949,580 @@
         </details>
       </section>
 
+      <section class="section-divider" id="section-2" aria-labelledby="section-2-title">
+        <p class="eyebrow">Раздел II · Билеты 8-26</p>
+        <h2 id="section-2-title">Статистическая геометрия полимерной цепи</h2>
+        <p>
+          В первом разделе цепь была химическим объектом: звенья, состав,
+          синтез. Здесь та же цепь становится геометрическим и статистическим
+          объектом. Главный вопрос: если звенья случайно ориентируются в
+          пространстве, каков размер клубка, как он распределён и почему
+          растянутая цепь стремится свернуться обратно?
+        </p>
+        <ol class="route route--wide">
+          <li><span>модель</span><b>свободно-сочленённая, фиксированный угол</b></li>
+          <li><span>распределение</span><b>биномиальное → гауссово</b></li>
+          <li><span>размер</span><b>длина, ширина, толщина, \(R_g\)</b></li>
+          <li><span>жёсткость</span><b>Кун, персистентность, эластичность</b></li>
+        </ol>
+      </section>
+
+      <section class="ticket" id="ticket-8">
+        <div class="ticket__head">
+          <p class="ticket__num">Билет 8</p>
+          <h2>Идеальная и свободно-сочленённая цепь</h2>
+          <p>
+            Идеальная цепь учитывает только соседние по цепи звенья, а
+            дальнодействующими взаимодействиями пренебрегает. В
+            свободно-сочленённой модели цепь состоит из \(N\) независимых
+            сегментов длины \(l\).
+          </p>
+        </div>
+
+        <div class="polymer-model">
+          <svg viewBox="0 0 720 180" role="img" aria-label="Свободно-сочлененная цепь">
+            <polyline points="40,120 125,70 205,115 292,42 382,92 470,54 568,122 660,78"></polyline>
+            <line class="end-vector" x1="40" y1="120" x2="660" y2="78"></line>
+            <text x="52" y="146">начало</text>
+            <text x="610" y="62">конец</text>
+            <text class="vector-label" x="330" y="135">R = sum ui</text>
+          </svg>
+          <p>
+            Сегменты могут смотреть куда угодно. Поэтому средний вектор
+            \(\langle R\rangle\) равен нулю, но средний квадрат длины не равен:
+            именно он описывает размер клубка.
+          </p>
+        </div>
+
+        <div class="definition-grid">
+          <article>
+            <h3>Главная формула</h3>
+            <div class="math-line">
+              \[
+                R=\sum_{i=1}^{N}u_i,\qquad
+                \langle R^2\rangle
+                =\sum_{i,j}\langle u_i\cdot u_j\rangle
+                =Nl^2
+              \]
+            </div>
+          </article>
+          <article>
+            <h3>Почему не \(L=Nl\)</h3>
+            <p>
+              Контурная длина \(L=Nl\) — это полностью вытянутая цепь.
+              Реальный идеальный клубок намного компактнее:
+            </p>
+            <div class="math-line">
+              \[
+                \frac{\sqrt{\langle R^2\rangle}}{L}
+                =\frac{l\sqrt{N}}{Nl}
+                =\frac{1}{\sqrt{N}}
+              \]
+            </div>
+          </article>
+        </div>
+
+        <details>
+          <summary>Почему \(\langle R\rangle=0\), а \(\langle R^2\rangle\neq 0\)</summary>
+          <p>
+            Для каждого направления сегмента есть противоположное направление
+            с той же вероятностью, поэтому \(\langle u_i\rangle=0\). Но
+            квадрат \(u_i\cdot u_i=l^2\) всегда положителен. Перекрёстные
+            члены \(\langle u_i\cdot u_j\rangle\) при \(i\neq j\) исчезают
+            из-за независимости ориентаций, а диагональные дают \(N\) вкладов
+            по \(l^2\).
+          </p>
+        </details>
+      </section>
+
+      <section class="ticket" id="ticket-9">
+        <div class="ticket__head">
+          <p class="ticket__num">Билет 9</p>
+          <h2>Цепь с фиксированным валентным углом</h2>
+          <p>
+            Здесь соседние сегменты уже не независимы: угол \(\gamma\) между
+            ними фиксирован. Но внутреннее вращение вокруг связи свободно, так
+            что следующий сегмент равновероятно лежит на конусе вокруг
+            предыдущего.
+          </p>
+        </div>
+
+        <div class="angle-demo">
+          <div class="cone-card">
+            <svg viewBox="0 0 320 220" role="img" aria-label="Фиксированный валентный угол">
+              <line x1="70" y1="165" x2="170" y2="90"></line>
+              <ellipse cx="210" cy="90" rx="82" ry="30"></ellipse>
+              <line x1="170" y1="90" x2="270" y2="92"></line>
+              <path d="M168 90 C188 115, 198 123, 216 126"></path>
+              <text x="185" y="130">gamma</text>
+              <text x="68" y="184">u n-1</text>
+              <text x="250" y="78">u n</text>
+            </svg>
+          </div>
+          <div>
+            <h3>Что меняется относительно билета 8</h3>
+            <p>
+              Соседние направления коррелируют: если \(q=\cos\gamma\), то
+              память о направлении через \(k\) шагов убывает как \(q^k\).
+            </p>
+            <div class="math-line">
+              \[
+                \langle\cos\vartheta_{i,i+k}\rangle=(\cos\gamma)^k
+              \]
+            </div>
+          </div>
+        </div>
+
+        <div class="formula-strip">
+          <span>\[
+            \langle R^2\rangle \simeq Nb^2\frac{1+\cos\gamma}{1-\cos\gamma}
+          \]</span>
+        </div>
+
+        <details>
+          <summary>Откуда берётся геометрическая прогрессия</summary>
+          <p>
+            У следующего сегмента средняя поперечная часть исчезает при
+            вращении вокруг предыдущего, а параллельная часть равна
+            \(\cos\gamma\,u_{n-1}\). Поэтому каждый шаг дальше по цепи
+            добавляет ещё один множитель \(\cos\gamma\). В сумме для
+            \(\langle R^2\rangle\) появляются вклады
+            \(q+q^2+q^3+\ldots=q/(1-q)\), что и даёт множитель
+            \((1+q)/(1-q)\).
+          </p>
+        </details>
+      </section>
+
+      <section class="ticket" id="ticket-10">
+        <div class="ticket__head">
+          <p class="ticket__num">Билеты 10-11</p>
+          <h2>Биномиальное распределение проекции цепи</h2>
+          <p>
+            Чтобы перейти от одной случайной цепи к распределению размеров,
+            берут проекцию на ось \(z\). Один трёхмерный сегмент в среднем
+            эквивалентен шагу вдоль оси длины \(\Delta=b/\sqrt{3}\).
+          </p>
+        </div>
+
+        <div class="walk-board">
+          <div class="walk-rail">
+            <span class="step plus">+</span><span class="step minus">−</span>
+            <span class="step plus">+</span><span class="step plus">+</span>
+            <span class="step minus">−</span><span class="step plus">+</span>
+          </div>
+          <p>
+            Если положительных шагов \(Z_+\), отрицательных \(Z_-\), а
+            \(m=h_z/\Delta\), то \(Z_+ + Z_- = Z\) и \(Z_+ - Z_-=m\).
+          </p>
+        </div>
+
+        <div class="math-grid">
+          <span>\(Z_+=(Z+m)/2\)</span>
+          <span>\(Z_-=(Z-m)/2\)</span>
+          <span>\[
+            W(Z,m)=\frac{Z!}{Z_+!Z_-!}\left(\frac12\right)^Z
+          \]</span>
+        </div>
+
+        <details>
+          <summary>Производящая функция и средние значения</summary>
+          <p>
+            Производящая функция \(F(u)=(u/2+1/2)^Z\) хранит вероятности
+            разных \(Z_+\): коэффициент при \(u^{Z_+}\) равен вероятности
+            получить именно столько положительных шагов.
+          </p>
+          <div class="math-grid">
+            <span>\(\langle Z_+\rangle=F'(1)=Z/2\)</span>
+            <span>\(\langle Z_+^2\rangle=Z/2+Z(Z-1)/4\)</span>
+            <span>\(\langle m\rangle=0,\quad \langle m^2\rangle=Z\)</span>
+            <span>\(\langle h_z^2\rangle=Zb^2/3\)</span>
+          </div>
+        </details>
+      </section>
+
+      <section class="ticket" id="ticket-12">
+        <div class="ticket__head">
+          <p class="ticket__num">Билеты 12-14</p>
+          <h2>Гауссово распределение расстояний между концами</h2>
+          <p>
+            При \(Z\gg 1\) биномиальное распределение превращается в
+            гауссово. Это центральный мост раздела: цепь становится аналогом
+            случайного блуждания, а расстояния описываются нормальным законом.
+          </p>
+        </div>
+
+        <div class="gaussian-board">
+          <div class="gaussian-curve" aria-label="Гауссова кривая распределения">
+            <span></span>
+          </div>
+          <div>
+            <h3>Векторное распределение</h3>
+            <div class="math-line">
+              \[
+                W(\mathbf h)=
+                \left(\frac{3}{2\pi Zb^2}\right)^{3/2}
+                \exp\!\left(-\frac{3h^2}{2Zb^2}\right)
+              \]
+            </div>
+            <p>
+              Для распределения по длине \(h=|\mathbf h|\) появляется
+              сферический множитель \(4\pi h^2\): направлений с большой длиной
+              больше, чем направлений около нуля.
+            </p>
+          </div>
+        </div>
+
+        <div class="math-grid">
+          <span>\(h_{\text{вер}}=\sqrt{2Zb^2/3}\)</span>
+          <span>\(\sqrt{\langle h^2\rangle}=b\sqrt{Z}\)</span>
+          <span>\(\langle h\rangle=\sqrt{8Zb^2/(3\pi)}\)</span>
+        </div>
+
+        <details>
+          <summary>Когда гауссово приближение перестаёт работать</summary>
+          <p>
+            Гауссов закон хорошо описывает малые и средние растяжения
+            \(h\ll Zb\). Но он формально допускает \(h>Zb\), что физически
+            невозможно: цепь не может быть длиннее своей контурной длины. Для
+            больших растяжений в PDF вводится параметр \(\beta\) и функция
+            Ланжевена:
+          </p>
+          <div class="math-grid">
+            <span>\(h/(Zb)=L(\beta)\)</span>
+            <span>\(L(\beta)=\coth\beta-1/\beta\)</span>
+            <span>\(W(h)\propto \exp\!\left[-b^{-1}\int_0^h\beta(h')\,dh'\right]\)</span>
+          </div>
+        </details>
+      </section>
+
+      <section class="ticket" id="ticket-15">
+        <div class="ticket__head">
+          <p class="ticket__num">Билеты 15-18</p>
+          <h2>Средние размеры цепи: длина, ширина, толщина, \(R_g\)</h2>
+          <p>
+            Расстояние между концами — не единственный размер клубка. Внутри
+            цепи атомы флуктуируют вокруг линии между концами, поэтому вводят
+            ширину, толщину и радиус инерции.
+          </p>
+        </div>
+
+        <div class="shape-board">
+          <svg viewBox="0 0 720 240" role="img" aria-label="Длина, ширина и толщина цепи">
+            <line class="axis-line" x1="80" y1="124" x2="640" y2="124"></line>
+            <path d="M80 124 C160 46, 246 202, 344 116 S530 55, 640 124"></path>
+            <line class="width-line" x1="360" y1="124" x2="360" y2="58"></line>
+            <line class="thick-line" x1="448" y1="124" x2="486" y2="160"></line>
+            <text x="330" y="48">ширина</text>
+            <text x="494" y="170">толщина</text>
+            <text x="330" y="151">длина h</text>
+          </svg>
+        </div>
+
+        <div class="class-grid">
+          <article>
+            <h4>Средняя квадратичная длина</h4>
+            <p>
+              Для \(k\)-го атома при фиксированных концах:
+              \[
+                h_k^2=h^2\frac{k^2}{Z^2}+b^2\frac{k(Z-k)}{Z}
+              \]
+            </p>
+          </article>
+          <article>
+            <h4>Ширина</h4>
+            <p>
+              Поперечное отклонение от оси концов:
+              \[
+                r_k^2=\frac{2}{3}b^2\frac{Z-k}{Z}k,\qquad
+                (r_k^2)_{\max}=\frac16 Zb^2
+              \]
+            </p>
+          </article>
+          <article>
+            <h4>Толщина</h4>
+            <p>
+              Отклонение от плоскости, проходящей через ось и середину:
+              \[
+                \rho_k^2=\frac13 b^2\frac{Z-2k}{Z}k,\qquad
+                (\rho_k^2)_{\max}=\frac1{24}Zb^2
+              \]
+            </p>
+          </article>
+          <article>
+            <h4>Радиус инерции</h4>
+            <p>
+              Средний квадрат расстояния звеньев от центра масс:
+              \[
+                R_g^2=\frac{\langle R^2\rangle}{6}=\frac{Zb^2}{6}
+              \]
+            </p>
+          </article>
+        </div>
+
+        <details>
+          <summary>Что важно не перепутать</summary>
+          <p>
+            Длина, ширина и толщина в билетах получаются при разных способах
+            фиксации конфигурации: фиксируем концы, затем дополнительно
+            выбираем плоскость через середину. Поэтому их нельзя буквально
+            считать тремя полуосями одного жёсткого эллипсоида. Более
+            универсальная характеристика клубка — \(R_g\).
+          </p>
+        </details>
+      </section>
+
+      <section class="ticket" id="ticket-19">
+        <div class="ticket__head">
+          <p class="ticket__num">Билеты 19-20</p>
+          <h2>Несвободное внутреннее вращение и матрица поворота</h2>
+          <p>
+            Реальная цепь не поворачивается вокруг связи как идеальный шарнир:
+            углы внутреннего вращения \(\varphi\) имеют разные энергии
+            \(U(\varphi)\). Поэтому ориентации соседних звеньев связаны через
+            матрицу перехода.
+          </p>
+        </div>
+
+        <div class="matrix-board">
+          <div>
+            <h3>Средние по потенциалу вращения</h3>
+            <div class="math-line">
+              \[
+                \eta=\langle\cos\varphi\rangle,\qquad
+                \varepsilon=\langle\sin\varphi\rangle
+              \]
+            </div>
+            <p>
+              Если потенциал симметричен, \(\varepsilon=0\). Тогда в формуле
+              для размера появляется множитель, отвечающий за заторможенное
+              вращение.
+            </p>
+          </div>
+          <div class="matrix-card">
+            \[
+              \langle h^2\rangle\simeq
+              Nl^2
+              \frac{1+\cos\alpha}{1-\cos\alpha}
+              \frac{1+\eta}{1-\eta}
+            \]
+          </div>
+        </div>
+
+        <details>
+          <summary>Смысл матрицы \(A\)</summary>
+          <p>
+            Матрица \(A\) переводит локальную систему координат одного звена в
+            систему следующего. При вычислении \(\langle h^2\rangle\) нужны
+            средние косинусы углов между удалёнными звеньями; они выражаются
+            через степени матрицы \(A^s\). Для длинной цепи сумма этих
+            корреляций превращается в матричную геометрическую прогрессию.
+          </p>
+        </details>
+      </section>
+
+      <section class="ticket" id="ticket-21">
+        <div class="ticket__head">
+          <p class="ticket__num">Билет 21</p>
+          <h2>Модель Куна и статистический сегмент</h2>
+          <p>
+            Модель Куна заменяет реальную цепь эквивалентной
+            свободно-сочленённой цепью: контурная длина та же, средний квадрат
+            расстояния между концами тот же, но сегменты крупнее химических
+            связей.
+          </p>
+        </div>
+
+        <div class="kuhn-board">
+          <div class="fine-chain"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+          <div class="map-arrow">→</div>
+          <div class="coarse-chain"><span>A</span><span>A</span><span>A</span></div>
+        </div>
+
+        <div class="math-grid">
+          <span>\(AN=L\)</span>
+          <span>\(\langle h^2\rangle=NA^2\)</span>
+          <span>\(A=\langle h^2\rangle/L\)</span>
+        </div>
+
+        <details open>
+          <summary>Почему сегмент Куна не равен химической связи</summary>
+          <p>
+            Химические связи соседних звеньев коррелированы валентными углами
+            и внутренним вращением. Сегмент Куна — это не “реальный кусок
+            молекулы”, а эффективный статистический шаг, после которого
+            направление можно считать почти независимым.
+          </p>
+          <div class="math-line">
+            \[
+              A=
+              \frac{l}{\sin(\theta/2)}
+              \frac{1-\cos\theta}{1+\cos\theta}
+              \frac{1+\langle\cos\varphi\rangle}{1-\langle\cos\varphi\rangle}
+            \]
+          </div>
+        </details>
+      </section>
+
+      <section class="ticket" id="ticket-22">
+        <div class="ticket__head">
+          <p class="ticket__num">Билеты 22-24</p>
+          <h2>Персистентная длина: память о направлении</h2>
+          <p>
+            Персистентная длина \(a\) показывает, на каком контурном расстоянии
+            цепь забывает своё начальное направление. Чем больше \(a\), тем
+            жёстче цепь.
+          </p>
+        </div>
+
+        <div class="persistence-board">
+          <div class="memory-scale">
+            <span>почти прямая</span><i></i><span>память потеряна</span>
+          </div>
+          <div class="math-line">
+            \[
+              \langle t(0)\cdot t(s)\rangle
+              =\langle\cos\theta(s)\rangle
+              =e^{-s/a}
+            \]
+          </div>
+        </div>
+
+        <div class="definition-grid">
+          <article>
+            <h3>Для фиксированного угла</h3>
+            <p>
+              Если \(\langle\cos\vartheta_{i,i+k}\rangle=(\cos\gamma)^k\) и
+              \(s=kb\), то
+            </p>
+            <div class="math-line">\[
+              a=\frac{b}{|\ln(\cos\gamma)|}
+            \]</div>
+          </article>
+          <article>
+            <h3>Связь с моделью Куна</h3>
+            <p>
+              Для длинной мягкой персистентной цепи:
+            </p>
+            <div class="math-line">\[
+              \langle R^2\rangle\simeq 2aL,\qquad A=2a,\qquad R_g^2\simeq aL/3
+            \]</div>
+          </article>
+        </div>
+
+        <details>
+          <summary>Связь с энергией изгиба</summary>
+          <p>
+            Если малый изгиб описывается квадратичной свободной энергией
+            \(\Delta F_n=a_1\theta_1^2/(2l)+a_2\theta_2^2/(2l)\), то
+            флуктуации углов имеют гауссов вид. Сравнение
+            \(\langle\cos\theta(l)\rangle\simeq 1-l/a\) с тепловыми
+            флуктуациями даёт:
+          </p>
+          <div class="math-line">\[
+            \frac1a=\frac{T}{2}\left(\frac1{a_1}+\frac1{a_2}\right),
+            \qquad a=\frac{\alpha}{T}\quad (a_1=a_2=\alpha)
+          \]</div>
+        </details>
+
+        <details>
+          <summary>Средний квадрат расстояния для персистентной цепи</summary>
+          <div class="math-line">\[
+            \langle R^2\rangle
+            =2a^2\left(\frac{L}{a}-1+e^{-L/a}\right)
+          \]</div>
+          <p>
+            При \(L\ll a\) цепь похожа на жёсткую палочку:
+            \(\langle R^2\rangle\simeq L^2(1-L/(3a))\). При \(L\gg a\) она
+            ведёт себя как гауссов клубок: \(\langle R^2\rangle\simeq 2aL\).
+          </p>
+        </details>
+      </section>
+
+      <section class="ticket" id="ticket-25">
+        <div class="ticket__head">
+          <p class="ticket__num">Билеты 25-26</p>
+          <h2>Энтропийная эластичность и поворотно-изомерная модель</h2>
+          <p>
+            Каучук сопротивляется растяжению в первую очередь не потому, что
+            растут энергии связей, а потому что вытянутая цепь имеет меньше
+            доступных конфигураций. Растяжение уменьшает энтропию.
+          </p>
+        </div>
+
+        <div class="entropy-board">
+          <div class="entropy-state many">
+            <span></span><span></span><span></span><span></span><span></span>
+            <b>много конфигураций</b>
+          </div>
+          <div class="map-arrow">→</div>
+          <div class="entropy-state few">
+            <span></span><span></span><span></span><span></span><span></span>
+            <b>мало конфигураций</b>
+          </div>
+        </div>
+
+        <div class="math-grid">
+          <span>\(F=E-TS\)</span>
+          <span>\(f=(\partial F/\partial L)_T\)</span>
+          <span>\(f=-T(\partial S/\partial L)_T\quad\text{если }(\partial E/\partial L)_T\simeq0\)</span>
+          <span>\(f=\frac{3kT}{Zb^2}h\)</span>
+        </div>
+
+        <details open>
+          <summary>Почему сила растёт с температурой</summary>
+          <p>
+            В гауссовом приближении
+            \(W(h)\propto\exp[-3h^2/(2Zb^2)]\), поэтому
+            \(S(h)=k\ln W(h)=S_0-3kh^2/(2Zb^2)\). Чем больше \(h\), тем меньше
+            энтропия. Сила \(f=-T\partial S/\partial h\) пропорциональна
+            \(T\), поэтому нагретый каучук может сильнее тянуть назад.
+          </p>
+        </details>
+
+        <details>
+          <summary>Большие растяжения и функция Ланжевена</summary>
+          <p>
+            При больших \(h\) гауссов закон уже не годится: он не видит
+            предела \(h=Zb\). Тогда используют обратную функцию Ланжевена:
+          </p>
+          <div class="math-line">\[
+            f=\frac{kT}{b}L^{-1}\!\left(\frac{h}{Zb}\right),
+            \qquad
+            L^{-1}(x)=3x+\frac95x^3+\ldots
+          \]</div>
+        </details>
+
+        <details>
+          <summary>Поворотно-изомерная модель: два механизма растяжения</summary>
+          <p>
+            В реальной цепи внутреннее вращение несвободно, а углы
+            \(\varphi_i\) соответствуют минимумам \(U(\varphi)\). Поэтому
+            растяжение может идти двумя путями. Первый — изоэнергетический:
+            те же изомеры просто упорядочиваются вдоль цепи. Второй —
+            энергетический: меняется число транс- и свёрнутых изомеров.
+          </p>
+          <div class="math-grid">
+            <span>\[
+              \gamma=\langle\cos\varphi\rangle
+              =\frac{\sum_i g_i\cos\varphi_i}{\sum_i g_i},
+              \quad g_i=e^{-u_i/(kT)}
+            \]</span>
+            <span>\[
+              b=l\frac{\cos(\alpha/2)}{\sin^2(\alpha/2)}
+              \frac{1+\gamma}{1-\gamma}
+            \]</span>
+            <span>\[
+              Z=N\sin^2(\alpha/2)\frac{1-\gamma}{1+\gamma}
+            \]</span>
+          </div>
+        </details>
+      </section>
+
       <footer class="site-footer">
         <p>
-          Раздел I собран как учебный конспект по билетам 1-7: химия звеньев,
-          распределения, синтез и биополимеры.
+          Разделы I-II собраны как учебный конспект по билетам 1-26: химия
+          звеньев, распределения состава, модели цепей, размеры клубка,
+          персистентность и энтропийная эластичность.
         </p>
       </footer>
     </main>
