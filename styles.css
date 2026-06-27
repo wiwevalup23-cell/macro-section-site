@@ -293,6 +293,14 @@ p {
   font-family: "Courier New", monospace;
 }
 
+.katex {
+  font-size: 1.05em;
+}
+
+.formula-strip .katex {
+  font-size: 1.12em;
+}
+
 .formula-strip {
   display: flex;
   flex-wrap: wrap;
@@ -304,6 +312,10 @@ p {
   border: 1px solid #d7bf89;
   border-radius: 6px;
   overflow-x: auto;
+}
+
+.formula-strip > span {
+  min-width: 0;
 }
 
 .formula-strip.compact {
@@ -322,6 +334,308 @@ p {
   background: #eef1e4;
   border: 1px solid #bcc8ae;
   border-radius: 8px;
+}
+
+.chem-legend-board,
+.reaction-map,
+.mechanism-board,
+.composition-map,
+.architecture-board,
+.bio-visuals {
+  display: grid;
+  gap: 14px;
+  margin: 20px 0 24px;
+}
+
+.chem-legend-board {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.bond-card,
+.monomer-card,
+.mechanism-board article,
+.composition-cell,
+.bio-visuals article {
+  padding: 16px;
+  background: #fbf3df;
+  border: 1px solid #d9c9aa;
+  border-radius: 6px;
+}
+
+.bond-card {
+  display: grid;
+  gap: 8px;
+  min-height: 136px;
+}
+
+.bond-card b,
+.label {
+  color: var(--blue);
+  font: 700 0.9rem "Trebuchet MS", Arial, sans-serif;
+  text-transform: uppercase;
+}
+
+.bond-card > span,
+.big-chem {
+  display: block;
+  font-size: 1.3rem;
+  max-width: 100%;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.bond-card .katex,
+.big-chem .katex {
+  white-space: nowrap;
+}
+
+.bond-card small,
+.monomer-card small,
+.composition-cell small {
+  color: var(--muted);
+}
+
+.reaction-map {
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  align-items: stretch;
+}
+
+.monomer-card {
+  display: grid;
+  gap: 8px;
+  align-content: center;
+  min-height: 138px;
+}
+
+.map-arrow {
+  display: grid;
+  place-items: center;
+  color: var(--red);
+  font: 700 2rem "Trebuchet MS", Arial, sans-serif;
+}
+
+.architecture-board {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.architecture-board figure {
+  margin: 0;
+  padding: 12px;
+  background: #eef1e4;
+  border: 1px solid #bcc8ae;
+  border-radius: 6px;
+}
+
+.architecture-board svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.architecture-board path,
+.architecture-board line {
+  fill: none;
+  stroke: var(--blue);
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.architecture-board circle {
+  fill: var(--gold);
+  stroke: #805d24;
+  stroke-width: 2;
+}
+
+.crosslink-demo {
+  position: relative;
+  min-height: 132px;
+  margin: 16px;
+  background: #eef1e4;
+  border: 1px solid #bcc8ae;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.strand {
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  top: 38px;
+  height: 18px;
+  background:
+    radial-gradient(circle at 9px 9px, var(--blue) 0 8px, transparent 9px)
+    0 0 / 34px 18px repeat-x;
+}
+
+.strand--lower {
+  top: 82px;
+}
+
+.bridge {
+  position: absolute;
+  top: 49px;
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 38px;
+  color: var(--red);
+  background: rgba(255, 250, 240, 0.92);
+  border: 2px solid var(--red);
+  border-radius: 18px;
+}
+
+.bridge::before,
+.bridge::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 3px;
+  height: 24px;
+  background: var(--red);
+  transform: translateX(-50%);
+}
+
+.bridge::before {
+  bottom: 36px;
+}
+
+.bridge::after {
+  top: 36px;
+}
+
+.b1 {
+  left: 28%;
+}
+
+.b2 {
+  right: 25%;
+}
+
+.composition-map {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.composition-cell {
+  display: grid;
+  gap: 10px;
+}
+
+.mini-chain {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.mini-chain span {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  color: #fff;
+  background: var(--blue);
+  border-radius: 50%;
+  font: 700 0.78rem "Trebuchet MS", Arial, sans-serif;
+}
+
+.mini-chain span:nth-child(2n) {
+  background: var(--gold);
+}
+
+.composition-cell:nth-child(2) .mini-chain span:nth-child(2n) {
+  background: var(--blue);
+}
+
+.composition-cell:nth-child(2) .mini-chain span:nth-child(4) {
+  background: var(--gold);
+}
+
+.composition-cell:nth-child(3) .mini-chain span {
+  background: var(--gold);
+}
+
+.composition-cell:nth-child(3) .mini-chain span:nth-child(3),
+.composition-cell:nth-child(3) .mini-chain span:nth-child(5) {
+  background: var(--blue);
+}
+
+.mechanism-board {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.mechanism-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+  padding: 12px;
+  background: #fffaf0;
+  border: 1px solid #d4c6aa;
+  border-radius: 6px;
+}
+
+.mechanism-row .plus,
+.loss {
+  color: var(--red);
+  font-weight: 700;
+}
+
+.bio-visuals {
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+}
+
+.dna-ladder {
+  position: relative;
+  display: grid;
+  grid-template-columns: 40px 1fr 40px;
+  gap: 8px 12px;
+  align-items: center;
+  max-width: 260px;
+  min-height: 172px;
+  margin: 12px 0;
+  padding: 18px 24px;
+  background: #eef1e4;
+  border: 1px solid #bcc8ae;
+  border-radius: 8px;
+}
+
+.dna-ladder .rail-line {
+  position: absolute;
+  top: 18px;
+  bottom: 18px;
+  width: 5px;
+  background: var(--blue);
+  border-radius: 3px;
+}
+
+.dna-ladder .rail-line:first-child {
+  left: 24px;
+}
+
+.dna-ladder .rail-line:nth-child(2) {
+  right: 24px;
+}
+
+.dna-ladder span {
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  color: #fff;
+  background: var(--blue);
+  border-radius: 50%;
+  font: 700 0.9rem "Trebuchet MS", Arial, sans-serif;
+}
+
+.dna-ladder span:nth-of-type(2n) {
+  background: var(--gold);
+}
+
+.dna-ladder b {
+  height: 0;
+  border-top: 2px dashed var(--red);
 }
 
 .chain-demo,
@@ -687,8 +1001,21 @@ input[type="range"] {
   }
 
   .class-grid,
+  .architecture-board,
+  .chem-legend-board,
+  .composition-map,
+  .mechanism-board,
+  .bio-visuals,
   .timeline {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .reaction-map {
+    grid-template-columns: 1fr;
+  }
+
+  .reaction-map .map-arrow {
+    transform: rotate(90deg);
   }
 }
 
@@ -697,6 +1024,11 @@ input[type="range"] {
   .definition-grid,
   .class-grid,
   .bio-grid,
+  .architecture-board,
+  .chem-legend-board,
+  .composition-map,
+  .mechanism-board,
+  .bio-visuals,
   .sequence-gallery,
   .timeline,
   .stats,

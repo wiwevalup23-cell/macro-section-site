@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Статистика макромолекул: раздел I</title>
+    <link rel="stylesheet" href="katex/katex.min.css" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -72,33 +73,55 @@
           <article>
             <h4>Одинарная связь</h4>
             <p>
-              Черта <span class="chem">-</span> означает ковалентную связь:
+              Черта <span class="chem">\( \ce{-} \)</span> означает ковалентную связь:
               атомы делят пару электронов. В цепи
-              <span class="chem">-C-C-C-</span> это просто скелет молекулы.
+              <span class="chem">\( \ce{-C-C-C-} \)</span> это просто скелет молекулы.
             </p>
           </article>
           <article>
             <h4>Двойная связь</h4>
             <p>
-              Запись <span class="chem">C=C</span> часто “раскрывается” при
+              Запись <span class="chem">\( \ce{C=C} \)</span> часто “раскрывается” при
               полимеризации: из неё получается фрагмент главной цепи.
             </p>
           </article>
           <article>
             <h4>Радикал</h4>
             <p>
-              Точка <span class="chem">R•</span> — неспаренный электрон.
+              Точка <span class="chem">\( \ce{R^.} \)</span> — неспаренный электрон.
               Такое место активно и может присоединять мономер.
             </p>
           </article>
           <article>
             <h4>Сокращения</h4>
             <p>
-              <span class="chem">R</span> — произвольный органический остаток,
-              <span class="chem">X</span> — заместитель, <span class="chem">n</span>
+              <span class="chem">\(R\)</span> — произвольный органический остаток,
+              <span class="chem">\(X\)</span> — заместитель, <span class="chem">\(n\)</span>
               — число повторов звена.
             </p>
           </article>
+        </div>
+        <div class="chem-legend-board">
+          <div class="bond-card">
+            <b>одинарная</b>
+            <span>\(\ce{C-C}\)</span>
+            <small>можно вращаться вокруг связи</small>
+          </div>
+          <div class="bond-card">
+            <b>двойная</b>
+            <span>\(\ce{C=C}\)</span>
+            <small>часто место присоединения мономера</small>
+          </div>
+          <div class="bond-card">
+            <b>радикал</b>
+            <span>\(\ce{R^.}\)</span>
+            <small>активный конец цепи</small>
+          </div>
+          <div class="bond-card">
+            <b>повтор</b>
+            <span>\(\ce{[-CH2-CH2-]_{n}}\)</span>
+            <small>одно звено, повторённое \(n\) раз</small>
+          </div>
         </div>
       </section>
 
@@ -131,11 +154,29 @@
               Например, полиэтилен:
             </p>
             <div class="formula-strip">
-              <span class="chem">n CH<sub>2</sub>=CH<sub>2</sub></span>
-              <span class="arrow">→</span>
-              <span class="chem">[-CH<sub>2</sub>-CH<sub>2</sub>-]<sub>n</sub></span>
+              <span>\(\ce{n CH2=CH2 -> [-CH2-CH2-]_{n}}\)</span>
             </div>
           </article>
+        </div>
+
+        <div class="reaction-map">
+          <div class="monomer-card">
+            <span class="label">мономер</span>
+            <span class="big-chem">\(\ce{CH2=CH2}\)</span>
+            <small>двойная связь — место, где молекула может присоединяться</small>
+          </div>
+          <div class="map-arrow">→</div>
+          <div class="monomer-card">
+            <span class="label">звено цепи</span>
+            <span class="big-chem">\(\ce{-CH2-CH2-}\)</span>
+            <small>двойная связь раскрылась, появились две связи с соседями</small>
+          </div>
+          <div class="map-arrow">→</div>
+          <div class="monomer-card">
+            <span class="label">полимер</span>
+            <span class="big-chem">\(\ce{[-CH2-CH2-]_{n}}\)</span>
+            <small>звено повторяется много раз</small>
+          </div>
         </div>
 
         <div class="visual-block">
@@ -149,6 +190,36 @@
         </div>
 
         <h3>Основные классификации</h3>
+        <div class="architecture-board" aria-label="Схемы архитектур полимеров">
+          <figure>
+            <svg viewBox="0 0 220 90" role="img" aria-label="Линейная цепь">
+              <path d="M18 45 C45 12, 74 78, 105 45 S165 18, 202 45"></path>
+            </svg>
+            <figcaption>линейная</figcaption>
+          </figure>
+          <figure>
+            <svg viewBox="0 0 220 90" role="img" aria-label="Разветвленная цепь">
+              <path d="M18 58 C55 20, 96 70, 132 38 S180 54, 204 26"></path>
+              <path d="M94 48 C92 28, 76 20, 62 12"></path>
+              <path d="M136 38 C150 25, 160 18, 178 12"></path>
+            </svg>
+            <figcaption>разветвлённая</figcaption>
+          </figure>
+          <figure>
+            <svg viewBox="0 0 220 90" role="img" aria-label="Сетчатый полимер">
+              <path d="M24 18 H196 M24 45 H196 M24 72 H196 M48 14 V76 M108 14 V76 M168 14 V76"></path>
+              <circle cx="48" cy="45" r="5"></circle><circle cx="108" cy="18" r="5"></circle><circle cx="168" cy="72" r="5"></circle>
+            </svg>
+            <figcaption>сетка</figcaption>
+          </figure>
+          <figure>
+            <svg viewBox="0 0 220 90" role="img" aria-label="Дендример">
+              <path d="M110 76 V50 M110 50 L80 28 M110 50 L140 28 M80 28 L58 12 M80 28 L88 10 M140 28 L132 10 M140 28 L162 12"></path>
+              <circle cx="110" cy="76" r="5"></circle><circle cx="110" cy="50" r="5"></circle><circle cx="80" cy="28" r="5"></circle><circle cx="140" cy="28" r="5"></circle>
+            </svg>
+            <figcaption>дендример</figcaption>
+          </figure>
+        </div>
         <div class="class-grid">
           <article>
             <h4>По составу звеньев</h4>
@@ -185,27 +256,27 @@
               <tbody>
                 <tr>
                   <td>Амидная</td>
-                  <td class="chem">-C(=O)-NH-</td>
+                  <td class="chem">\( \ce{-C(=O)-NH-} \)</td>
                   <td>полиамиды, полипептиды</td>
                 </tr>
                 <tr>
                   <td>Сложноэфирная</td>
-                  <td class="chem">-C(=O)-O-</td>
+                  <td class="chem">\( \ce{-C(=O)-O-} \)</td>
                   <td>полиэфиры</td>
                 </tr>
                 <tr>
                   <td>Простая эфирная</td>
-                  <td class="chem">-O-</td>
+                  <td class="chem">\( \ce{-O-} \)</td>
                   <td>полиэфиры простого типа</td>
                 </tr>
                 <tr>
                   <td>Уретановая</td>
-                  <td class="chem">-NH-C(=O)-O-</td>
+                  <td class="chem">\( \ce{-NH-C(=O)-O-} \)</td>
                   <td>полиуретаны</td>
                 </tr>
                 <tr>
                   <td>Нитрильная</td>
-                  <td class="chem">-C≡N</td>
+                  <td class="chem">\( \ce{-C#N} \)</td>
                   <td>полиакрилонитрил и родственные</td>
                 </tr>
               </tbody>
@@ -222,9 +293,13 @@
             нитей и становится трёхмерной конструкцией.
           </p>
           <div class="formula-strip">
-            <span class="chem">цепь-C=C-цепь + S<sub>x</sub></span>
-            <span class="arrow">→</span>
-            <span class="chem">цепь-C-S<sub>x</sub>-C-цепь</span>
+            <span>\(\ce{polymer-C=C-polymer + S_{x} -> polymer-C-S_{x}-C-polymer}\)</span>
+          </div>
+          <div class="crosslink-demo" aria-label="Сшивание цепей серными мостиками">
+            <div class="strand"></div>
+            <div class="strand strand--lower"></div>
+            <span class="bridge b1">\( \ce{S_x} \)</span>
+            <span class="bridge b2">\( \ce{S_y} \)</span>
           </div>
         </details>
       </section>
@@ -244,10 +319,10 @@
           <article>
             <h3>Ключевые величины</h3>
             <p>
-              <b>Степень полимеризации</b> <span class="chem">l</span> — число
+              <b>Степень полимеризации</b> <span class="chem">\(l\)</span> — число
               звеньев в цепи. Если масса звена равна
-              <span class="chem">M<sub>0</sub></span>, то масса цепи примерно
-              <span class="chem">M = lM<sub>0</sub></span>.
+              <span class="chem">\(M_0\)</span>, то масса цепи примерно
+              <span class="chem">\(M = lM_0\)</span>.
             </p>
           </article>
           <article>
@@ -288,21 +363,23 @@
         <details>
           <summary>Формальная запись через моменты</summary>
           <p>
-            Пусть <span class="chem">f<sub>N</sub>(l)</span> — числовая доля
-            цепей длины <span class="chem">l</span>. Моменты распределения:
+            Пусть <span class="chem">\(f_N(l)\)</span> — числовая доля
+            цепей длины <span class="chem">\(l\)</span>. Моменты распределения:
           </p>
           <div class="math-line">
-            μ<sup>(k)</sup> = Σ l<sup>k</sup> f<sub>N</sub>(l)
+            \[
+              \mu^{(k)}=\sum_{l=1}^{\infty} l^k f_N(l)
+            \]
           </div>
           <p>Тогда средние степени полимеризации записывают так:</p>
           <div class="math-grid">
-            <span>P<sub>N</sub> = μ<sup>(1)</sup>/μ<sup>(0)</sup></span>
-            <span>P<sub>W</sub> = μ<sup>(2)</sup>/μ<sup>(1)</sup></span>
-            <span>P<sub>Z</sub> = μ<sup>(3)</sup>/μ<sup>(2)</sup></span>
+            <span>\(P_N=\mu^{(1)}/\mu^{(0)}\)</span>
+            <span>\(P_W=\mu^{(2)}/\mu^{(1)}\)</span>
+            <span>\(P_Z=\mu^{(3)}/\mu^{(2)}\)</span>
           </div>
           <p>
             Коэффициент полидисперсности:
-            <span class="chem">K = P<sub>W</sub>/P<sub>N</sub></span>. Для
+            <span class="chem">\(K=P_W/P_N\)</span>. Для
             идеально одинаковых цепей он равен 1; чем шире распределение, тем
             он больше.
           </p>
@@ -344,13 +421,31 @@
 
         <h3>Что добавляется к ММР</h3>
         <p>
-          Для гомополимера достаточно длины <span class="chem">l</span>. Для
+          Для гомополимера достаточно длины <span class="chem">\(l\)</span>. Для
           сополимера вводят вектор состава
-          <span class="chem">ζ = (ζ<sub>A</sub>, ζ<sub>B</sub>, ...)</span>,
-          где <span class="chem">ζ<sub>A</sub></span> — доля звеньев A,
-          <span class="chem">ζ<sub>B</sub></span> — доля звеньев B. Сумма долей
+          <span class="chem">\(\zeta=(\zeta_A,\zeta_B,\ldots)\)</span>,
+          где <span class="chem">\(\zeta_A\)</span> — доля звеньев A,
+          <span class="chem">\(\zeta_B\)</span> — доля звеньев B. Сумма долей
           равна 1.
         </p>
+
+        <div class="composition-map">
+          <div class="composition-cell">
+            <b>короткая цепь</b>
+            <div class="mini-chain"><span>A</span><span>B</span><span>A</span><span>B</span></div>
+            <small>\(l=4,\; \zeta_A=1/2\)</small>
+          </div>
+          <div class="composition-cell">
+            <b>длиннее и богаче A</b>
+            <div class="mini-chain"><span>A</span><span>A</span><span>A</span><span>B</span><span>A</span><span>A</span></div>
+            <small>\(l=6,\; \zeta_A=5/6\)</small>
+          </div>
+          <div class="composition-cell">
+            <b>тот же размер, другой состав</b>
+            <div class="mini-chain"><span>B</span><span>B</span><span>A</span><span>B</span><span>A</span><span>B</span></div>
+            <small>\(l=6,\; \zeta_A=1/3\)</small>
+          </div>
+        </div>
 
         <div class="class-grid">
           <article>
@@ -358,14 +453,14 @@
             <p>
               <b>Размер-состав-распределение</b> описывает совместную
               неоднородность: сколько молекул имеют длину
-              <span class="chem">l</span> и состав <span class="chem">ζ</span>.
+              <span class="chem">\(l\)</span> и состав <span class="chem">\(\zeta\)</span>.
             </p>
           </article>
           <article>
             <h4>ФКР</h4>
             <p>
               <b>Фракционное композиционное распределение</b>
-              <span class="chem">W(l|ζ)</span> говорит: среди цепей данной
+              <span class="chem">\(W(l|\zeta)\)</span> говорит: среди цепей данной
               длины как распределены составы.
             </p>
           </article>
@@ -384,8 +479,10 @@
             Удобная запись из курса:
           </p>
           <div class="math-line">
-            f<sub>N</sub>(l, ζ) = f<sub>N</sub>(l) W(l|ζ), &nbsp;
-            f<sub>W</sub>(l, ζ) = f<sub>W</sub>(l) W(l|ζ)
+            \[
+              f_N(l,\zeta)=f_N(l)W(l|\zeta), \qquad
+              f_W(l,\zeta)=f_W(l)W(l|\zeta)
+            \]
           </div>
           <p>
             Смысл простой: сначала выбираем длину цепи, потом смотрим, какой
@@ -410,9 +507,9 @@
             <h3>Функциональность</h3>
             <p>
               <b>Функциональная группа</b> — реакционноспособное место молекулы:
-              <span class="chem">-OH</span>, <span class="chem">-COOH</span>,
-              <span class="chem">-NH<sub>2</sub></span>,
-              <span class="chem">C=C</span>. <b>Функциональность</b> — сколько
+              <span class="chem">\( \ce{-OH} \)</span>, <span class="chem">\( \ce{-COOH} \)</span>,
+              <span class="chem">\( \ce{-NH2} \)</span>,
+              <span class="chem">\( \ce{C=C} \)</span>. <b>Функциональность</b> — сколько
               таких мест есть у мономера.
             </p>
           </article>
@@ -427,14 +524,36 @@
         </div>
 
         <div class="formula-strip">
-          <span class="chem">HO-R-OH + HOOC-R'-COOH</span>
-          <span class="arrow">→</span>
-          <span class="chem">[-O-R-O-C(=O)-R'-C(=O)-]<sub>n</sub> + H<sub>2</sub>O</span>
+          <span>\(\ce{n HO-R-OH + n HOOC-R'-COOH -> [-O-R-O-C(=O)-R'-C(=O)-]_{n} + 2n H2O}\)</span>
         </div>
         <div class="formula-strip">
-          <span class="chem">R• + CH<sub>2</sub>=CHX</span>
-          <span class="arrow">→</span>
-          <span class="chem">R-CH<sub>2</sub>-CHX•</span>
+          <span>\(\ce{R^. + CH2=CHX -> R-CH2-CHX^.}\)</span>
+        </div>
+
+        <div class="mechanism-board">
+          <article>
+            <h3>Поликонденсация</h3>
+            <p>Реакция идёт между функциональными группами двух молекул.</p>
+            <div class="mechanism-row">
+              <span>\(\ce{-COOH}\)</span>
+              <span class="plus">+</span>
+              <span>\(\ce{HO-}\)</span>
+              <span class="map-arrow">→</span>
+              <span>\(\ce{-C(=O)-O-}\)</span>
+              <span class="loss">\(\ce{+ H2O}\)</span>
+            </div>
+          </article>
+          <article>
+            <h3>Полимеризация</h3>
+            <p>Активный конец раскрывает двойную связь нового мономера.</p>
+            <div class="mechanism-row">
+              <span>\(\ce{R^.}\)</span>
+              <span class="plus">+</span>
+              <span>\(\ce{CH2=CHX}\)</span>
+              <span class="map-arrow">→</span>
+              <span>\(\ce{R-CH2-CHX^.}\)</span>
+            </div>
+          </article>
         </div>
 
         <details open>
@@ -458,7 +577,9 @@
             Для цепных реакций активные частицы живут очень недолго. Поэтому
             их концентрацию часто считают квазистационарной:
           </p>
-          <div class="math-line">d[R•]/dt ≈ 0</div>
+          <div class="math-line">\[
+            \frac{d[\ce{R^.}]}{dt}\approx 0
+          \]</div>
           <p>
             На языке радикальной полимеризации это значит: радикалы постоянно
             рождаются и погибают, но их суммарная концентрация быстро выходит
@@ -522,10 +643,12 @@
           В курсе берут элементарную реакцию конденсации между двумя
           функциональными группами:
         </p>
-        <div class="math-line">A + A → Q + Z</div>
+        <div class="math-line">\[
+          \ce{A + A -> Q + Z}
+        \]</div>
         <p>
-          Здесь <span class="chem">Q</span> — новая связь в полимере,
-          <span class="chem">Z</span> — малая молекула или побочный продукт.
+          Здесь <span class="chem">\(Q\)</span> — новая связь в полимере,
+          <span class="chem">\(Z\)</span> — малая молекула или побочный продукт.
           “Необратимая” значит, что обратным распадом на этом уровне
           пренебрегают.
         </p>
@@ -533,17 +656,21 @@
         <details open>
           <summary>Распределение Флори для поликонденсации</summary>
           <p>
-            Если <span class="chem">p</span> — конверсия функциональных групп,
+            Если <span class="chem">\(p\)</span> — конверсия функциональных групп,
             то числовое распределение длин в идеальной модели имеет
             геометрический вид:
           </p>
-          <div class="math-line">f<sub>N</sub>(l) = (1 - p) p<sup>l-1</sup></div>
+          <div class="math-line">\[
+            f_N(l)=(1-p)p^{l-1}
+          \]</div>
           <p>
             Весовое распределение дополнительно умножается на длину цепи:
           </p>
-          <div class="math-line">f<sub>W</sub>(l) = l(1 - p)<sup>2</sup>p<sup>l-1</sup></div>
+          <div class="math-line">\[
+            f_W(l)=l(1-p)^2p^{l-1}
+          \]</div>
           <p>
-            Поэтому при больших <span class="chem">p</span> вес уходит в
+            Поэтому при больших <span class="chem">\(p\)</span> вес уходит в
             длинные молекулы.
           </p>
         </details>
@@ -551,13 +678,13 @@
         <details>
           <summary>Средние степени полимеризации</summary>
           <div class="math-grid">
-            <span>P<sub>N</sub> = 1/(1 - p)</span>
-            <span>P<sub>W</sub> = (1 + p)/(1 - p)</span>
-            <span>K = 1 + p</span>
+            <span>\(P_N=\frac{1}{1-p}\)</span>
+            <span>\(P_W=\frac{1+p}{1-p}\)</span>
+            <span>\(K=1+p\)</span>
           </div>
           <p>
             Практический смысл: чтобы получить длинные цепи, нужно довести
-            реакцию почти до конца. При <span class="chem">p = 0.99</span>
+            реакцию почти до конца. При <span class="chem">\(p=0.99\)</span>
             среднечисловая степень полимеризации уже около 100.
           </p>
         </details>
@@ -580,7 +707,7 @@
             <h3>Инициирование</h3>
             <p>Рождается радикал или другой активный центр.</p>
             <div class="formula-strip compact">
-              <span class="chem">I → 2R•</span>
+              <span>\(\ce{I -> 2R^.}\)</span>
             </div>
           </article>
           <article>
@@ -588,7 +715,7 @@
             <h3>Рост</h3>
             <p>Активный конец присоединяет мономеры.</p>
             <div class="formula-strip compact">
-              <span class="chem">R<sub>l</sub>• + M → R<sub>l+1</sub>•</span>
+              <span>\(\ce{R_l^. + M -> R_{l+1}^.}\)</span>
             </div>
           </article>
           <article>
@@ -596,7 +723,7 @@
             <h3>Обрыв</h3>
             <p>Два радикала соединяются или диспропорционируют.</p>
             <div class="formula-strip compact">
-              <span class="chem">R• + R• → P</span>
+              <span>\(\ce{R^. + R^. -> P}\)</span>
             </div>
           </article>
           <article>
@@ -609,7 +736,7 @@
         <h3>Идеальная линейная модель</h3>
         <p>
           В простейшем варианте константа роста
-          <span class="chem">k<sub>p</sub></span> не зависит от длины цепи
+          <span class="chem">\(k_p\)</span> не зависит от длины цепи
           (принцип Флори), а суммарная концентрация радикалов находится из
           квазистационарного приближения Боденштейна-Семёнова.
         </p>
@@ -626,9 +753,9 @@
         <details>
           <summary>Кинетическая схема из курса</summary>
           <div class="math-grid">
-            <span>инициирование: J</span>
-            <span>рост: R<sub>l</sub> + M → R<sub>l+1</sub></span>
-            <span>обрыв: R<sub>l</sub> + R<sub>m</sub> → P<sub>l+m</sub></span>
+            <span>инициирование: \(J\)</span>
+            <span>рост: \(\ce{R_l^. + M -> R_{l+1}^.}\)</span>
+            <span>обрыв: \(\ce{R_l^. + R_m^. -> P_{l+m}}\)</span>
           </div>
           <p>
             Уравнения решают через производящие функции для радикалов и
@@ -677,8 +804,35 @@
               свойства.
             </p>
             <div class="amino-card">
-              <span class="chem">H<sub>2</sub>N-CH(R)-COOH</span>
+              <span class="chem">\(\ce{H2N-CH(R)-COOH}\)</span>
             </div>
+          </article>
+        </div>
+
+        <div class="bio-visuals">
+          <article>
+            <h3>Нуклеотидная цепь</h3>
+            <div class="dna-ladder" aria-label="Схема пар оснований ДНК">
+              <div class="rail-line"></div>
+              <div class="rail-line"></div>
+              <span>A</span><b></b><span>T</span>
+              <span>G</span><b></b><span>C</span>
+              <span>T</span><b></b><span>A</span>
+            </div>
+            <p>
+              Скелет ДНК держится на фосфодиэфирных связях, а пары оснований
+              держатся водородными связями между цепями.
+            </p>
+          </article>
+          <article>
+            <h3>Пептидная связь</h3>
+            <div class="formula-strip">
+              <span>\(\ce{H2N-CH(R)-COOH + H2N-CH(R')-COOH -> H2N-CH(R)-C(=O)-NH-CH(R')-COOH + H2O}\)</span>
+            </div>
+            <p>
+              В белках повторяется не вся аминокислота целиком, а остатки,
+              соединённые пептидной группой \( \ce{-C(=O)-NH-} \).
+            </p>
           </article>
         </div>
 
@@ -701,7 +855,7 @@
             <h4>Пептидная связь</h4>
             <p>
               Соединяет аминокислоты в белке:
-              <span class="chem">-C(=O)-NH-</span>.
+              <span class="chem">\( \ce{-C(=O)-NH-} \)</span>.
             </p>
           </article>
         </div>
@@ -739,6 +893,9 @@
     </main>
 
     <button class="top-button" type="button" aria-label="Наверх">↑</button>
+    <script src="katex/katex.min.js"></script>
+    <script src="katex/contrib/mhchem.min.js"></script>
+    <script src="katex/contrib/auto-render.min.js"></script>
     <script src="app.js"></script>
   </body>
 </html>
